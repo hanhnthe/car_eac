@@ -1,4 +1,8 @@
+import 'package:car_eac/view/document_screen.dart';
+import 'package:car_eac/view/info_screen.dart';
+import 'package:car_eac/view/reference_screen.dart';
 import 'package:car_eac/view/splash.dart';
+import 'package:car_eac/view/video_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -62,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         onTap: () {
                           //hanhNTHe: test, sau doi sau
-                          Get.to(SplashScreen());
+                          Get.to(DocumentScreen());
                         }),
                     GestureDetector(
                         child: Column(
@@ -91,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         onTap: () {
                           //hanhNTHe: test, sau doi sau
-                          Get.to(SplashScreen());
+                          Get.to(ReferenceScreen());
                         }),
                   ],
                 ),
@@ -128,7 +132,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         onTap: () {
                           //hanhNTHe: test, sau doi sau
-                          Get.to(SplashScreen());
+                          Get.to(VideoScreen());
                         }),
                     GestureDetector(
                         child: Column(
@@ -157,7 +161,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         onTap: () {
                           //hanhNTHe: test, sau doi sau
-                          Get.to(SplashScreen());
+                          Get.to(InfoScreen());
                         }),
                   ],
                 ),
