@@ -7,7 +7,7 @@ class SplashController extends GetxController {
   }
 
   Future<void> _getHomeScreen() async {
-    await Future.delayed(Duration(seconds: 5));
-    Get.off(HomeScreen());
+    await Future.delayed(Duration(seconds: 3));
+    Get.off(HomeScreen(), transition: Transition.rightToLeft);
   }
 }
