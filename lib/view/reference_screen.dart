@@ -50,178 +50,223 @@ class ReferenceScreen extends StatelessWidget {
             shrinkWrap: true,
             itemCount: referenceController.listNhom.length,
             itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(bottom: 10, top: 10, left: 10),
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                          width: 65,
-                          height: 50,
-                          child: FittedBox(
-                            child: Image.asset("assets/car_splash.jpg"),
-                            fit: BoxFit.fill,
+              return GestureDetector(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10, top: 10, left: 10),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            width: 65,
+                            height: 50,
+                            child: FittedBox(
+                              child: Image.asset("assets/car_splash.jpg"),
+                              fit: BoxFit.fill,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          referenceController.listNhom[index],
-                          style: TextStyle(fontSize: 17),
-                        )
-                      ],
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            referenceController.listNhom[index],
+                            style: TextStyle(fontSize: 17),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    child: Container(
-                      color: Colors.grey,
-                      height: 1,
-                      width: double.infinity,
-                    ),
-                  )
-                ],
+                    SizedBox(
+                      child: Container(
+                        color: Colors.grey,
+                        height: 1,
+                        width: double.infinity,
+                      ),
+                    )
+                  ],
+                ),
+                onTap: () {
+                  DefaultTabController.of(context).animateTo(1);
+                  referenceController.changeIsHaveListChuDe(true);
+                },
               );
             }),
       ),
     );
   }
+
   Widget chuDeView() {
     return Container(
       child: GetBuilder<ReferenceController>(
-        builder: (_) => ListView.builder(
-          // physics: const NeverScrollableScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: referenceController.listNhom.length,
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(bottom: 10, top: 10, left: 10),
-                    child: Row(
-                      children: <Widget>[
+        builder: (_) {
+          if (referenceController.isHaveListChuDe) {
+            return ListView.builder(
+                // physics: const NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: referenceController.listNhom.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    child: Column(
+                      children: [
                         Container(
-                          width: 65,
-                          height: 50,
-                          child: FittedBox(
-                            child: Image.asset("assets/car_splash.jpg"),
-                            fit: BoxFit.fill,
+                          margin:
+                              EdgeInsets.only(bottom: 10, top: 10, left: 10),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                width: 65,
+                                height: 50,
+                                child: FittedBox(
+                                  child: Image.asset("assets/car_splash.jpg"),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Text(
+                                referenceController.listNhom[index],
+                                style: TextStyle(fontSize: 17),
+                              )
+                            ],
                           ),
                         ),
                         SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          referenceController.listNhom[index],
-                          style: TextStyle(fontSize: 17),
+                          child: Container(
+                            color: Colors.grey,
+                            height: 1,
+                            width: double.infinity,
+                          ),
                         )
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    child: Container(
-                      color: Colors.grey,
-                      height: 1,
-                      width: double.infinity,
-                    ),
-                  )
-                ],
-              );
-            }),
+                    onTap: () {
+                      DefaultTabController.of(context).animateTo(2);
+                      referenceController.changeIsHaveListMucLuc(true);
+                    },
+                  );
+                });
+          } else {
+            return Container();
+          }
+        },
       ),
     );
   }
+
   Widget mucLucView() {
     return Container(
       child: GetBuilder<ReferenceController>(
-        builder: (_) => ListView.builder(
-          // physics: const NeverScrollableScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: referenceController.listNhom.length,
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(bottom: 10, top: 10, left: 10),
-                    child: Row(
-                      children: <Widget>[
+        builder: (_) {
+          if (referenceController.isHaveListMucLuc) {
+            return ListView.builder(
+                // physics: const NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: referenceController.listNhom.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    child: Column(
+                      children: [
                         Container(
-                          width: 65,
-                          height: 50,
-                          child: FittedBox(
-                            child: Image.asset("assets/car_splash.jpg"),
-                            fit: BoxFit.fill,
+                          margin:
+                              EdgeInsets.only(bottom: 10, top: 10, left: 10),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                width: 65,
+                                height: 50,
+                                child: FittedBox(
+                                  child: Image.asset("assets/car_splash.jpg"),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Text(
+                                referenceController.listNhom[index],
+                                style: TextStyle(fontSize: 17),
+                              )
+                            ],
                           ),
                         ),
                         SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          referenceController.listNhom[index],
-                          style: TextStyle(fontSize: 17),
+                          child: Container(
+                            color: Colors.grey,
+                            height: 1,
+                            width: double.infinity,
+                          ),
                         )
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    child: Container(
-                      color: Colors.grey,
-                      height: 1,
-                      width: double.infinity,
-                    ),
-                  )
-                ],
-              );
-            }),
+                    onTap: () {
+                      DefaultTabController.of(context).animateTo(3);
+                      referenceController.changeIsHaveListTaiLieu(true);
+                    },
+                  );
+                });
+          } else {
+            return Container();
+          }
+        },
       ),
     );
   }
+
   Widget taiLieuView() {
     return Container(
       child: GetBuilder<ReferenceController>(
-        builder: (_) => ListView.builder(
-          // physics: const NeverScrollableScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: referenceController.listNhom.length,
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(bottom: 10, top: 10, left: 10),
-                    child: Row(
-                      children: <Widget>[
+        builder: (_) {
+          if (referenceController.isHaveListTaiLieu) {
+            return ListView.builder(
+                // physics: const NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: referenceController.listNhom.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    child: Column(
+                      children: [
                         Container(
-                          width: 65,
-                          height: 50,
-                          child: FittedBox(
-                            child: Image.asset("assets/car_splash.jpg"),
-                            fit: BoxFit.fill,
+                          margin:
+                              EdgeInsets.only(bottom: 10, top: 10, left: 10),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                width: 65,
+                                height: 50,
+                                child: FittedBox(
+                                  child: Image.asset("assets/car_splash.jpg"),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Text(
+                                referenceController.listNhom[index],
+                                style: TextStyle(fontSize: 17),
+                              )
+                            ],
                           ),
                         ),
                         SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          referenceController.listNhom[index],
-                          style: TextStyle(fontSize: 17),
+                          child: Container(
+                            color: Colors.grey,
+                            height: 1,
+                            width: double.infinity,
+                          ),
                         )
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    child: Container(
-                      color: Colors.grey,
-                      height: 1,
-                      width: double.infinity,
-                    ),
-                  )
-                ],
-              );
-            }),
+                    onTap: () {},
+                  );
+                });
+          } else {
+            return Container();
+          }
+        },
       ),
     );
   }
